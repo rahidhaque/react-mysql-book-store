@@ -1,6 +1,6 @@
 const express = require('express');
 const mysql = require('mysql');
-
+const cors = require('cors');
 const app = express();
 
 const db = mysql.createConnection({
@@ -11,6 +11,7 @@ const db = mysql.createConnection({
 })
 
 app.use(express.json());
+app.use(cors());
 
 app.get("/", (req, res) => {
     res.json("hello this is the backend");
